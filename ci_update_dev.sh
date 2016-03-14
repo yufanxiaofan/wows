@@ -9,8 +9,6 @@ cd ${scriptDir}/
 # kill all node servers
 killall node
 
-git pull https://koweni:2161256wen@github.com/koweni/wow.git develop
-
 cd Client
 sudo npm install
 sudo npm update
