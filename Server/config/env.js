@@ -3,7 +3,7 @@ var localConfig = {
     mode: "local",
     socketServerUrl : 'localhost',
     db: {
-        adminDBUrl: 'adminsinonet:passwordsinonet@localhost:27017/admindb/',
+        userDBUrl: 'adminsinonet:passwordsinonet@localhost:27017/admindb/',
         playerDBUrl: 'playersinonet:passwordsinonet@localhost:27017/playerdb/',
         logsDBUrl: 'localhost:27017/logsdb'
     },
