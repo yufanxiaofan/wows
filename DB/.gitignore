@@ -1,0 +1,6 @@
+dbData/
+dbData/*
+log/
+log/*
+.idea/
+.idea/*

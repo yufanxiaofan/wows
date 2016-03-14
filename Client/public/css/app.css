@@ -1,0 +1,189 @@
+/* app css stylesheet */
+
+#wrapper {
+    min-width: 1024px;
+    min-height: 800px;
+}
+
+.common-form-input-label {
+    /*text-align: right;*/
+    clear: both;
+    float:left;
+    margin-right:15px;
+    margin-top: 6px;
+    max-width: 20%;
+    min-width: 15%;
+}
+
+.common-form-label-input {
+    width: 70%;
+}
+
+input.ng-invalid.ng-dirty {
+    border-color: #b94a48;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+}
+
+input.ng-invalid.ng-dirty ~ .help-block {
+    color: #b94a48;
+}
+
+input.ng-valid.ng-dirty {
+    border-color: #468847;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+}
+
+@-webkit-keyframes rotating {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+.rotating {
+    float: right;
+    position: relative;
+    top: -24px;
+    right: 10px;
+    -webkit-animation: rotating 1s linear infinite;
+}
+
+.halflings-icon.refresh {
+    background-position: -239px -24px;
+}
+
+.footerVersion{
+    margin: 0px;
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+span.error {
+    color: #b94a48;
+}
+
+/*
+Styles for nodes and connectors.
+*/
+
+.node-rect {
+    stroke: black;
+    stroke-width: 2;
+}
+
+.mouseover-node-rect {
+    stroke: black;
+    stroke-width: 4;
+}
+
+.selected-node-rect {
+    stroke: red;
+    stroke-width: 3;
+}
+
+.connector-circle {
+    fill: white;
+    stroke: black;
+    stroke-width: 2;
+}
+
+.mouseover-connector-circle {
+    fill: white;
+    stroke: black;
+    stroke-width: 3;
+}
+
+/*
+Style for connections.
+*/
+
+.connection {
+}
+
+.connection-line {
+    stroke: gray;
+    stroke-width: 4;
+    fill: transparent;
+}
+
+.mouseover-connection-line {
+    stroke: gray;
+    stroke-width: 6;
+    fill: transparent;
+}
+
+.selected-connection-line {
+    stroke: red;
+    stroke-width: 4;
+    fill: transparent;
+}
+
+.connection-endpoint {
+    fill: gray;
+}
+
+.selected-connection-endpoint {
+    fill: red;
+}
+
+.mouseover-connection-endpoint {
+    fill: gray;
+}
+
+.connection-name{
+    fill: black;
+}
+
+.selected-connection-name{
+    fill: red;
+}
+
+.mouseover-connection-name{
+    fill: gray;
+}
+/*
+Style for the connection being dragged out.
+*/
+
+.dragging-connection {
+    pointer-events: none;
+}
+
+.dragging-connection-line {
+    stroke: gray;
+    stroke-width: 3;
+    fill: transparent;
+}
+
+.dragging-connection-endpoint {
+    fill: gray;
+}
+
+/*
+The element (in this case the SVG element) that contains the draggable elements.
+*/
+
+.draggable-container {
+    border: solid 1px blue;
+}
+
+/*
+Drag selection rectangle.
+*/
+
+.drag-selection-rect {
+    stroke: blue;
+    stroke-width: 2;
+    fill: transparent;
+}
+
+.popover {
+    width:auto!important;
+    max-width: none
+}

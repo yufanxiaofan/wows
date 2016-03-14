@@ -1,0 +1,49 @@
+extends layout
+
+block body
+	.container#loginContainer(style="display:none")
+		.row
+			.col-md-4.col-md-offset-4
+				.login-panel.panel.panel-default
+					.panel-heading
+						h3.panel-title {{ 'LOGIN_TITLE' | translate }}
+					.panel-body
+						div(ng-controller='loginCtrl')
+							form(name='form', role='form', method="post", ng-submit="login()")
+								fieldset
+									.form-group
+										input.form-control(placeholder="{{ 'USER_NAME' | translate }}", id='username', type='text', autofocus='autofocus', required)
+									.form-group
+										input.form-control(placeholder="{{ 'PASSWORD' | translate }}", id='password', type='password', value='', required)
+
+
+									span.error.help-block(ng-show="showError") {{errorMessage}}
+									input.btn.btn-lg.btn-success.btn-block(type="submit", value="{{ 'LOGIN_BUTTON' | translate }}", ng-disabled="form.$invalid")
+
+		//jQuery
+		script(src='js/lib/jquery/jquery-2.1.4.min.js')
+		//
+				angular
+		script(src='js/lib/angular/angular.min.js')
+		//
+				angular cookies
+		script(src='js/lib/angular/angular-cookies.js')
+		//
+				socket io client
+		script(src='js/lib/socket.io.js')
+		//
+				Bootstrap Core JavaScript
+		script(src='sb-admin-2/js/bootstrap.min.js')
+		//
+				Metis Menu Plugin JavaScript
+		script(src='sb-admin-2/js/plugins/metisMenu/metisMenu.min.js')
+		//
+				Custom Theme JavaScript
+		script(src='sb-admin-2/js/sb-admin-2.js')
+		//
+				localization JavaScript
+		script(src='js/lib/angular/angular-translate.min.js')
+		script(src='js/lib/angular/angular-translate-loader-static-files.min.js')
+
+		////javascript for login
+		script(src="js/lib/require.js" data-main="js/login_main")
