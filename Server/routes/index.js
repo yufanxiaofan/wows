@@ -26,7 +26,6 @@ router.post('/login', function (req, res, next) {
         dbUser.login(username, password).then(
             function (data) {
                 if (data) {
-                    console.log(data);
                     var user = {
                         _id: data._id,
                         name: data.name,

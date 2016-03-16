@@ -6,9 +6,9 @@ define(['js/services/authService', 'js/login'], function () {
 
     myLoginApp.config(function ($translateProvider) {
         $translateProvider.useStaticFilesLoader({
-            prefix: 'languages/',
-            suffix: '.json'
-        });
+                                                    prefix: 'languages/',
+                                                    suffix: '.json'
+                                                });
 
         $translateProvider.useSanitizeValueStrategy('escape');
         $translateProvider.preferredLanguage('en_US');
@@ -20,6 +20,12 @@ define(['js/services/authService', 'js/login'], function () {
         //    $window.location.href = $location.protocol() + "://" + $location.host() + ":" + $location.port() + "/mainPage";
         //    return;
         //}
+        $('input').iCheck({
+                              checkboxClass: 'icheckbox_square-blue',
+                              radioClass: 'iradio_square-blue',
+                              increaseArea: '20%' // optional
+                          });
+
         var showError = function (errorMessage) {
             $log.debug(errorMessage);
             $scope.showError = true;
@@ -28,7 +34,7 @@ define(['js/services/authService', 'js/login'], function () {
         };
 
         //todo::temp fix, should show view after angular translate are fully configured
-        setTimeout(function(){
+        setTimeout(function () {
             $("#loginContainer").show();
         }, 200);
 
@@ -48,30 +54,32 @@ define(['js/services/authService', 'js/login'], function () {
                     data: formData,
                     url: url + '/login'
                 }
-            )
-                .done(function (data) {
-                          if (data.token && data.adminName) {
-                              var exp = new Date();
-                              //set token expiration time to be 5 hours from now(the same time on server)
-                              exp.setSeconds(exp.getSeconds() + 60 * 60 * 5);
-                              authService.storeAuth($cookies, data.token, data._id, data.adminName, data.departments, data.roles, data.language, exp);
+            ).done(
+                function (data) {
+                    if (data.token && data.name) {
+                        var exp = new Date();
+                        //set token expiration time to be 5 hours from now(the same time on server)
+                        exp.setSeconds(exp.getSeconds() + 60 * 60 * 5);
+                        authService.storeAuth($cookies, data.token, data._id, data.name, data.departments, data.roles, data.language, exp);
 
-                              //Go to dashboard page after user login successfully
-                              $window.location.href = $location.protocol() + "://" + $location.host() + ":" + $location.port() + "/mainPage";
-                          }
-                          else {
-                              //if there is error, show the error message
-                              showError(data.error.message);
-                          }
-                      })
-                .fail(function (error) {
-                          if (error.responseText) {
-                              showError(error.responseText);
-                          }
-                          else {
-                              showError('Service is not available, please try again later.');
-                          }
-                      })
+                        //Go to dashboard page after user login successfully
+                        $window.location.href = $location.protocol() + "://" + $location.host() + ":" + $location.port() + "/home";
+                    }
+                    else {
+                        //if there is error, show the error message
+                        showError(data.error.message);
+                    }
+                }
+            ).fail(
+                function (error) {
+                    if (error.responseText) {
+                        showError(error.responseText);
+                    }
+                    else {
+                        showError('Service is not available, please try again later.');
+                    }
+                }
+            )
         }
     });
 });
