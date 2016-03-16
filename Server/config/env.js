@@ -14,7 +14,7 @@ var localConfig = {
 var devConfig = {
     mode: "development",
     db: {
-        adminDBUrl: 'adminwows:passwordwows@ec2-54-169-106-29.ap-southeast-1.compute.amazonaws.com:27017/userdb/'
+        userDBUrl: 'adminwows:passwordwows@ec2-54-169-106-29.ap-southeast-1.compute.amazonaws.com:27017/userdb/'
     },
     socketSecret : 'aO5GIR8Sk5a70XCAfecsDIHZ3D5hVSIvHkudBLCE',
     redisUrl : 'ec2-52-77-211-70.ap-southeast-1.compute.amazonaws.com',
