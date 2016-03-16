@@ -14,10 +14,10 @@ var localConfig = {
 var devConfig = {
     mode: "development",
     db: {
-        adminDBUrl: 'adminsinonet:passwordsinonet@ec2-54-169-3-146.ap-southeast-1.compute.amazonaws.com:27017/admindb/'
+        adminDBUrl: 'adminwows:passwordwows@ec2-54-169-106-29.ap-southeast-1.compute.amazonaws.com:27017/userdb/'
     },
     socketSecret : 'aO5GIR8Sk5a70XCAfecsDIHZ3D5hVSIvHkudBLCE',
-    redisUrl : 'ec2-54-169-3-146.ap-southeast-1.compute.amazonaws.com',
+    redisUrl : 'ec2-52-77-211-70.ap-southeast-1.compute.amazonaws.com',
     redisPort : '6379'
 };
 
