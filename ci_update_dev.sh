@@ -40,7 +40,7 @@ cd ..
 
 # start all node servers
 NODE_ENV=${env} forever start Client/app.js
-#NODE_ENV=${env} PORT=9000 forever start Server/app.js
+NODE_ENV=${env} forever start Server/app.js
 #NODE_ENV=${env} PORT=9001 forever start Server/app.js
 #NODE_ENV=${env} PORT=9002 forever start Server/app.js
 
