@@ -1,20 +1,20 @@
 var mongoose = require('mongoose');
 var env = require('./../config/env').config();
 
-var userdb = 'mongodb://' + env.db.adminDBUrl;
+var userDB = 'mongodb://' + env.db.userDBUrl;
 
-var dbUser = mongoose.createConnection(userdb);
+var dbUser = mongoose.createConnection(userDB);
 
-db_admin.on('error', console.error.bind(console, 'connection error:'));
-db_admin.once('open', function (callback) {
+dbUser.on('error', console.error.bind(console, 'connection error:'));
+dbUser.once('open', function (callback) {
     console.log("user db open!");
 });
 
 var counterSchema = require('./../schema/counter');
-var counterModel = db_admin.model('counter', counterSchema, 'counter');
+var counterModel = dbUser.model('counter', counterSchema, 'counter');
 
 var dbConnections = {
-    userdb : dbUser,
+    userDB : dbUser,
     counterModel: counterModel
 };
 
