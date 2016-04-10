@@ -60,7 +60,7 @@ define(['js/services/authService', 'js/login'], function () {
                         var exp = new Date();
                         //set token expiration time to be 5 hours from now(the same time on server)
                         exp.setSeconds(exp.getSeconds() + 60 * 60 * 5);
-                        authService.storeAuth($cookies, data.token, data._id, data.name, data.departments, data.roles, data.language, exp);
+                        authService.storeAuth($cookies, data.token, data._id, data.name, exp);
 
                         //Go to dashboard page after user login successfully
                         $window.location.href = $location.protocol() + "://" + $location.host() + ":" + $location.port() + "/home";
