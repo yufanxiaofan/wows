@@ -1,0 +1,91 @@
+doctype html
+html
+   head
+      meta(charset='utf-8')
+      meta(http-equiv='X-UA-Compatible', content='IE=edge')
+      title AdminLTE 2 | Log in
+      // Tell the browser to be responsive to screen width
+      meta(content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no', name='viewport')
+      // Bootstrap 3.3.5
+      link(rel='stylesheet', href='/sb-admin-2/css/bootstrap.min.css')
+      // Font Awesome
+      link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css')
+      // Ionicons
+      link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css')
+      // Theme style
+      link(rel='stylesheet', href='/css/AdminLTE.min.css')
+      // iCheck
+      link(rel='stylesheet', href='/plugins/iCheck/square/blue.css')
+      // HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
+      // WARNING: Respond.js doesn't work if you view the page via file://
+      //if lt IE 9
+          script(src='https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js')
+          script(src='https://oss.maxcdn.com/respond/1.4.2/respond.min.js')
+   body.hold-transition.login-page
+      #loginContainer.login-box(ng-controller='loginCtrl', style="display:none")
+         .login-logo
+            a(href='../../index2.html')
+               b WOWS
+               | 1.0
+         // /.login-logo
+         .login-box-body
+            p.login-box-msg Sign in to start your session
+            form()
+               .form-group.has-feedback
+                  input#username.form-control(type='text', placeholder='Email')
+                  span.glyphicon.glyphicon-envelope.form-control-feedback
+               .form-group.has-feedback
+                  input#password.form-control(type='password', placeholder='Password')
+                  span.glyphicon.glyphicon-lock.form-control-feedback
+               .row
+                  .col-xs-8
+                     .checkbox.icheck
+                        label
+                           input(type='checkbox')
+                           |  Remember Me
+                  // /.col
+                  .col-xs-4
+                     button.btn.btn-primary.btn-block.btn-flat(type='submit', ng-click="login()") Sign In
+                  // /.col
+            //.social-auth-links.text-center
+            //   p - OR -
+            //   a.btn.btn-block.btn-social.btn-facebook.btn-flat(href='#')
+            //      i.fa.fa-facebook
+            //      |  Sign in using
+            //      |         Facebook
+            //   a.btn.btn-block.btn-social.btn-google.btn-flat(href='#')
+            //      i.fa.fa-google-plus
+            //      |  Sign in using
+            //      |         Google+
+            //// /.social-auth-links
+            //a(href='#') I forgot my password
+            //br
+            //a.text-center(href='register.html') Register a new membership
+         // /.login-box-body
+      // /.login-box
+      // jQuery 2.2.0
+      script(src='js/lib/jquery/jquery-2.1.4.min.js')
+      // Bootstrap 3.3.5
+      script(src='sb-admin-2/js/bootstrap.min.js')
+      // iCheck
+      script(src='/plugins/iCheck/icheck.min.js')
+
+      //angular
+      script(src='js/lib/angular/angular.min.js')
+      //
+              angular cookies
+      script(src='js/lib/angular/angular-cookies.js')
+      //
+              socket io client
+      script(src='js/lib/socket.io.js')
+      //
+              Custom Theme JavaScript
+      //script(src='sb-admin-2/js/sb-admin-2.js')
+      //
+              localization JavaScript
+      script(src='js/lib/angular/angular-translate.min.js')
+      script(src='js/lib/angular/angular-translate-loader-static-files.min.js')
+
+      ////javascript for login
+      script(src="js/lib/require.js" data-main="js/login_main")
+

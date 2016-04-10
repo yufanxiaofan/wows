@@ -1,12 +1,10 @@
-var jwt = require('jsonwebtoken');
 var express = require('express');
 var router = express.Router();
-
+var jwt = require('jsonwebtoken');
 //var encrypt = require('./../modules/encrypt');
-//var dbAdminInfo = require('./../db_modules/dbAdminInfo');
+var dbUser = require('./../dbModules/dbUser');
 var env = require('./../config/env');
 var jwtSecret = env.config().socketSecret;
-var memCache = require('memory-cache');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -22,47 +20,28 @@ router.post('/login', function (req, res, next) {
     }
 
     var username = req.body.username;
-    var userpassword = req.body.password;
+    var password = req.body.password;
 
-    if (username && userpassword) {
-        dbAdminInfo.getFullAdminInfo({adminName: username}).then(
-            function (doc) {
-                if (!doc || !encrypt.validateHash(doc.password, userpassword)) {
-                    res.json({
-                        success: false,
-                        error: {name: "InvalidPassword", message: "Password or user name is not correct!"}
-                    });
-                }
-                else {
-                    //find all the admin user's departments roles
-                    if (doc && doc.roles) {
-                        var profile = {
-                            _id: doc._id,
-                            adminName: doc.adminName,
-                            password: doc.password,
-                            //roles: doc.roles
-                        };
-                        //store admin user's all roles information to cache
-                        memCache.put(doc.adminName, doc.roles, 1000 * 60 * 60 * 5);
-                        var token = jwt.sign(profile, jwtSecret, {expiresIn: 60 * 60 * 5});
-                        res.json({
+    if (username && password) {
+        dbUser.login(username, password).then(
+            function (data) {
+                if (data) {
+                    var user = {
+                        _id: data._id,
+                        name: data.name,
+                        password: data.password
+                    };
+                    var token = jwt.sign(user, jwtSecret, {expiresIn: 60 * 60 * 5});
+                    res.json(
+                        {
                             success: true,
                             token: token,
-                            _id: doc._id,
-                            adminName: doc.adminName,
-                            roles: doc.roles,
-                            departments: doc.departments,
-                            language: doc.language
-                        });
-                        var logData = {
-                            adminName: doc.adminName,
-                            action: "login",
-                            level: constSystemLogLevel.ACTION };
-                        dblog.createSystemLog(logData);
-                    }
-                    else {
-                        res.json({success: false, error: {name: "DBError", message: "Incorrect DB data"}});
-                    }
+                            name: data.name
+                        }
+                    );
+                }
+                else{
+                    res.json({success: false, error: "Invalid name or password"});
                 }
             },
             function (err) {

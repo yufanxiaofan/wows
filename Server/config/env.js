@@ -3,71 +3,22 @@ var localConfig = {
     mode: "local",
     socketServerUrl : 'localhost',
     db: {
-        adminDBUrl: 'adminsinonet:passwordsinonet@localhost:27017/admindb/',
-        playerDBUrl: 'playersinonet:passwordsinonet@localhost:27017/playerdb/',
-        logsDBUrl: 'localhost:27017/logsdb'
+        userDBUrl: 'adminwows:passwordwows@localhost:27017/userdb/',
     },
     socketSecret : 'aO5GIR8Sk5a70XCAfecsDIHZ3D5hVSIvHkudBLCE',
     redisUrl : 'localhost',
-    redisPort : '6379',
-    clientAPIServerUrl : "ws://localhost:9280"
+    redisPort : '6379'
 };
 
 //for aws-development
 var devConfig = {
     mode: "development",
     db: {
-        adminDBUrl: 'adminsinonet:passwordsinonet@ec2-54-169-3-146.ap-southeast-1.compute.amazonaws.com:27017/admindb/',
-        playerDBUrl: 'playersinonet:passwordsinonet@ec2-54-169-3-146.ap-southeast-1.compute.amazonaws.com:27017/playerdb/',
-        logsDBUrl: 'ec2-54-169-3-146.ap-southeast-1.compute.amazonaws.com:27017/logsdb'
+        userDBUrl: 'adminwows:passwordwows@ec2-54-169-106-29.ap-southeast-1.compute.amazonaws.com:27017/userdb/'
     },
     socketSecret : 'aO5GIR8Sk5a70XCAfecsDIHZ3D5hVSIvHkudBLCE',
-    redisUrl : 'ec2-54-169-3-146.ap-southeast-1.compute.amazonaws.com',
-    redisPort : '6379',
-    clientAPIServerUrl : "ws://ec2-54-255-174-69.ap-southeast-1.compute.amazonaws.com:9280"
-};
-
-//for testing
-var qaConfig = {
-    mode: "qa",
-    socketServerUrl : 'ec2-52-77-244-176.ap-southeast-1.compute.amazonaws.com',
-    db: {
-        adminDBUrl: 'adminsinonet:passwordsinonet@ec2-52-77-244-176.ap-southeast-1.compute.amazonaws.com:27017/admindb/',
-        playerDBUrl: 'playersinonet:passwordsinonet@ec2-52-77-244-176.ap-southeast-1.compute.amazonaws.com:27017/playerdb/',
-        logsDBUrl: 'ec2-52-77-244-176.ap-southeast-1.compute.amazonaws.com:27017/logsdb'
-    },
-    socketSecret : 'aO5GIR8Sk5a70XCAfecsDIHZ3D5hVSIvHkudBLCE',
-    redisUrl : 'ec2-54-169-3-146.ap-southeast-1.compute.amazonaws.com',
-    redisPort : '6379',
-    clientAPIServerUrl : "ws://ec2-54-255-174-69.ap-southeast-1.compute.amazonaws.com:9280"
-};
-
-var testAPIConfig = {
-    mode: "local",
-    socketServerUrl : 'localhost',
-    db: {
-        adminDBUrl: 'ec2-54-169-233-78.ap-southeast-1.compute.amazonaws.com:27017/admindb/',
-        playerDBUrl: 'ec2-54-169-233-78.ap-southeast-1.compute.amazonaws.com:27017/playerdb/',
-        logsDBUrl: 'ec2-54-169-233-78.ap-southeast-1.compute.amazonaws.com:27017/logsdb'
-    },
-    socketSecret : 'aO5GIR8Sk5a70XCAfecsDIHZ3D5hVSIvHkudBLCE',
-    redisUrl : 'localhost',
-    redisPort : '6379',
-    clientAPIServerUrl : "ws://ec2-54-255-174-69.ap-southeast-1.compute.amazonaws.com:9280"
-};
-
-//for release production
-var prodConfig = {
-    mode: "production",
-    db: {
-        adminDBUrl: 'adminsinonet:passwordsinonet@localhost:27017/admindb/',
-        playerDBUrl: 'playersinonet:passwordsinonet@localhost:27017/playerdb/',
-        logsDBUrl: 'ec2-54-169-206-213.ap-southeast-1.compute.amazonaws.com:27017/logsdb'
-    },
-    socketSecret : 'aO5GIR8Sk5a70XCAfecsDIHZ3D5hVSIvHkudBLCE',
-    redisUrl : 'localhost',
-    redisPort : '6379',
-    clientAPIServerUrl : "ws://ec2-54-255-174-69.ap-southeast-1.compute.amazonaws.com:9280"
+    redisUrl : 'ec2-52-77-211-70.ap-southeast-1.compute.amazonaws.com',
+    redisPort : '6379'
 };
 
 //env parameters
@@ -84,14 +35,6 @@ var env = {
             case 'development':
                 return devConfig;
 
-            case 'qa':
-                return qaConfig;
-
-            case 'api':
-                return testAPIConfig;
-
-            case 'production':
-                return prodConfig;
 
             default:
                 return devConfig;
