@@ -14,7 +14,7 @@ var limSymbolsSchema = new Schema({
     adhocLimSymbol: {type: String},
     excludeCalibration: {type: String},
     instrumentType: {type: String},
-    priceCurveId: {type: Schema.objectId},
+    priceCurveId: {type: Schema.ObjectId},
     usZone: {type: String},
     queryContracts: {type: String},
     scheduling: {type: String},

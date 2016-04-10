@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var priceCurveParamSchema = new Schema({
+var priceCurveParamsSchema = new Schema({
     priceCurveId: {type: Schema.ObjectId},
     stochasticProcess: {type: Number},
     mu: {type: Number, default: 0},
@@ -18,4 +18,4 @@ var priceCurveParamSchema = new Schema({
     maxPriceBound: {type: Number, default: 1000000000}
 });
 
-module.exports = priceCurveParamSchema;
+module.exports = priceCurveParamsSchema;
